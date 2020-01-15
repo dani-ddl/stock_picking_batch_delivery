@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-
+        <!-- Vista de creación -->
          <record model="ir.ui.view" id="stock_picking_bacth_delivery">
             <field name="name">stock.picking.bacth.delivery</field>
             <field name="model">stock.picking.batch</field>
@@ -17,5 +17,26 @@
             </field>
         </record>
 
+        <!-- Fin vista creación -->
+        <!-- ListView -->
+
+        <record model="ir.ui.view" id="stock_picking_batch_tree">
+            <field name="name">stock.picking.bacth.delivery.tree</field>
+            <field name="model">stock.picking.batch</field>
+            <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='user_id']" position="after">
+                        <field name="delivery_id"/>
+                </xpath>
+
+                <xpath expr="//field[@name='state']" position="after">
+                        <field name="date_planned"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- Fin listview-->
     </data>
 </odoo>
