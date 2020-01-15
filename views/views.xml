@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+         <record model="ir.ui.view" id="stock_picking_bacth_delivery">
+            <field name="name">stock.picking.bacth.delivery</field>
+            <field name="model">stock.picking.batch</field>
+            <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
+            <field name="arch" type="xml">
+
+                 <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="delivery_id" context="{'order_id': id}" options="{'no_create': True, 'no_open': True}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
