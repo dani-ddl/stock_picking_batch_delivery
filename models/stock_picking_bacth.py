@@ -9,3 +9,7 @@ class StockPickingBatch(models.Model):
     _inherit = ['stock.picking.batch']
 
     delivery_id = fields.Many2one('delivery.carrier', string='Método de entrega')
+
+    date_planned = fields.Datetime(
+        'Fecha', default=fields.Datetime.now, index=True, required=True,
+        states={'done': [('readonly', True)]})
